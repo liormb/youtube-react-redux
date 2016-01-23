@@ -12,13 +12,21 @@ import VideoItem from './VideoItem';
 class VideoItems extends Component {
 
     renderVideos() {
-        const { videos } = this.props;
-        return videos.map((video) => <VideoItem video={video} key={video.etag} />);
+        const { videos, onSelectedVideo } = this.props;
+        return videos.map((video) => {
+            return (
+                <VideoItem
+                    key={video.etag}
+                    video={video}
+                    onSelectedVideo={onSelectedVideo}
+                />
+            );
+        });
     }
 
     render() {
         return (
-            <ul className="list-group col-sm-6">
+            <ul className="list-group col-md-4">
                 {this.renderVideos()}
             </ul>
         );
@@ -26,9 +34,8 @@ class VideoItems extends Component {
 }
 
 VideoItems.propTypes = {
-    videos: React.PropTypes.array.isRequired
+    videos: React.PropTypes.array.isRequired,
+    onSelectedVideo: React.PropTypes.func.isRequired
 };
-
-VideoItems.defaultProps = {};
 
 export default VideoItems;

@@ -10,20 +10,17 @@ import React from 'react';
 
 class VideoItem extends React.Component {
 
-    constructor (props) {
-        super(props);
-    }
-
     render() {
-        const { snippet } = this.props.video;
-        const { title } = snippet;
-        const { url } = snippet.thumbnails.default;
+        const { video, onSelectedVideo } = this.props;
+        const { snippet } = video;
+        const { title, thumbnails } = snippet;
+        const { url } = thumbnails.default;
 
         return (
-            <li className="list-group-item">
+            <li className="list-group-item video-item" onClick={onSelectedVideo.bind(null, video)}>
                 <div className="video-list-media">
                     <div className="media-left">
-                        <img src={url} alt="" className="media-object" />
+                        <img src={url} alt={title} className="media-object" />
                     </div>
                     <div className="media-body">
                         <div className="media-title">{title}</div>
@@ -35,9 +32,8 @@ class VideoItem extends React.Component {
 }
 
 VideoItem.propTypes = {
-    video: React.PropTypes.object.isRequired
+    video: React.PropTypes.object.isRequired,
+    onSelectedVideo: React.PropTypes.func.isRequired
 };
-
-VideoItem.defaultProps = {};
 
 export default VideoItem;

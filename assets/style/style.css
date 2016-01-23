@@ -1,0 +1,34 @@
+
+.video-detail-wrapper {
+    position: relative;
+    padding: 15px;
+    border: 1px solid rgb(220,220,220);
+    border-radius: 2px;
+    background: rgb(250,250,250);
+}
+
+.video-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 2px;
+    background: rgb(250,250,250);
+    color: rgb(80,80,80);
+}
+
+.video-item:last-child {
+    margin-bottom: 0;
+}
+
+.video-item:hover {
+    cursor: pointer;
+}
+
+.loader {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+}
+
+.loader img {
+    margin: 100px auto;
+}

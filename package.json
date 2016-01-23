@@ -2,7 +2,7 @@
   "name": "youtube-react-redux",
   "version": "1.0.0",
   "description": "YouTube Application build with ReactJS and Redux",
-  "main": "index.js",
+  "main": "App.js",
   "repository": "git@github.com:liormb/youtube-react-redux.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
