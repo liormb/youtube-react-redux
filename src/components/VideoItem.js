@@ -15,13 +15,28 @@ class VideoItem extends React.Component {
     }
 
     render() {
-        return (
+        const { snippet } = this.props.video;
+        const { title } = snippet;
+        const { url } = snippet.thumbnails.default;
 
+        return (
+            <li className="list-group-item">
+                <div className="video-list-media">
+                    <div className="media-left">
+                        <img src={url} alt="" className="media-object" />
+                    </div>
+                    <div className="media-body">
+                        <div className="media-title">{title}</div>
+                    </div>
+                </div>
+            </li>
         );
     }
 }
 
-VideoItem.propTypes = {};
+VideoItem.propTypes = {
+    video: React.PropTypes.object.isRequired
+};
 
 VideoItem.defaultProps = {};
 

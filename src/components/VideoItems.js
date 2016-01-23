@@ -6,22 +6,28 @@
 
 'use strict';
 
-import React from 'react';
+import React, { Component } from 'react';
+import VideoItem from './VideoItem';
 
-class VideoItems extends React.Component {
+class VideoItems extends Component {
 
-    constructor (props) {
-        super(props);
+    renderVideos() {
+        const { videos } = this.props;
+        return videos.map((video) => <VideoItem video={video} key={video.etag} />);
     }
 
     render() {
         return (
-
+            <ul className="list-group col-sm-6">
+                {this.renderVideos()}
+            </ul>
         );
     }
 }
 
-VideoItems.propTypes = {};
+VideoItems.propTypes = {
+    videos: React.PropTypes.array.isRequired
+};
 
 VideoItems.defaultProps = {};
 

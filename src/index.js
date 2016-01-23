@@ -6,17 +6,39 @@
 
 'use strict';
 
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import SearchBar from './components/SearchBar';
+import YTSearch from 'youtube-api-search';
 import { API_KEY } from './modules/API';
 
-const App = () => {
-    return (
-        <div className="page-wrapper">
-            <SearchBar />
-        </div>
-    );
-};
+// components
+import SearchBar  from './components/SearchBar';
+import VideoItems from './components/VideoItems';
+
+class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { videos: [] };
+        this.getVideos();
+    }
+
+    getVideos() {
+        YTSearch({
+            key: API_KEY,
+            term: 'surfboard'
+        }, (videos) => this.setState({ videos }));
+    }
+
+    render() {
+        const { videos } = this.state;
+        return (
+            <div className="page-wrapper">
+                <SearchBar />
+                <VideoItems videos={videos} />
+            </div>
+        );
+    }
+}
 
 ReactDOM.render(<App />, document.getElementById('page'));
