@@ -18,16 +18,19 @@ class SearchBar extends Component {
 
     onInputChange(event) {
         const { value } = event.target;
+        const { onVideoSearch } = this.props;
         this.setState({ term: value });
+        onVideoSearch(value);
     }
 
     render() {
         const { term } = this.state;
-
         return (
             <div className="search-bar-wrapper">
                 <input
                     type="text"
+                    className="form-control"
+                    placeholder="Search for..."
                     defaultValue={term}
                     onChange={this.onInputChange}
                 />
@@ -35,5 +38,9 @@ class SearchBar extends Component {
         );
     }
 }
+
+SearchBar.propTypes = {
+    onVideoSearch: React.PropTypes.func.isRequired
+};
 
 export default SearchBar;
