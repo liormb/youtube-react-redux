@@ -1,9 +1,9 @@
 {
-  "name": "youtube-react-redux",
+  "name": "youtube-search-react",
   "version": "1.0.0",
-  "description": "YouTube Application build with ReactJS and Redux",
+  "description": "YouTube search application built with ReactJS",
   "main": "App.js",
-  "repository": "git@github.com:liormb/youtube-react-redux.git",
+  "repository": "git@github.com:liormb/youtube-search-react.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
