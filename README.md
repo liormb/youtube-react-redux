@@ -1,1 +1,1 @@
-# youtube-react-redux
+# youtube-search-react
